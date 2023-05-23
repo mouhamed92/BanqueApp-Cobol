@@ -50,8 +50,8 @@
        01  WS-NBR-CPT-CLT PIC 9(2).
        01  WS-COUNT-CPT   PIC 9(2).
 
-       01  FUNC-SOMME     PIC X(100) VALUES 'SOMME-SOLDE'.
-       01  FUNC-DATE     PIC X(100) VALUES  'CONV-DATE'.
+       01  FUNC-SOMME     PIC X(11) VALUES 'SOMME-SOLDE'.
+       01  FUNC-DATE     PIC X(9) VALUES  'CONV-DATE'.
 
 
 
@@ -152,8 +152,8 @@
             ACCEPT WS-CPT-CLT
 
       *    ici j'ai pas pu acceder aux attribues table compte directement
-      *    donc j'ai utiliser un tableau intermédiaire : CPT-INT
-      *    j'ai utiliser COMPTE(WS-J).WS-TITUL-CPTI il génere une erreur
+      *    donc j'ai utiliser un tableau intermÃ©diaire : CPT-INT
+      *    j'ai utiliser COMPTE(WS-J).WS-TITUL-CPTI il gÃ©nere une erreur
 
            PERFORM VARYING WS-J FROM 1 BY 1 UNTIL WS-J > WS-NBR-CPT
                     MOVE COMPTE(WS-J) TO CPT-INT(WS-J)
@@ -162,7 +162,7 @@
 
            PERFORM VARYING WS-J FROM 1 BY 1 UNTIL WS-J > WS-NBR-CPT
 
-      *    ici j'ai tester que le table intermédiaire est rempli
+      *    ici j'ai tester que le table intermÃ©diaire est rempli
                   DISPLAY WS-TITUL-CPTI(WS-J)
 
                   IF WS-TITUL-CPTI(WS-J) = WS-CPT-CLT
